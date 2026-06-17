@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs"></script>
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" media="only screen and (max-width: 480px)" href="css/mobile.css" />
+  <link rel="stylesheet" media="only screen and (min-width: 481px) and (max-width: 960px)" href="css/tablet.css" />
+  <link rel="stylesheet" media="only screen and (min-width: 961px)" href="css/desktop.css" />
+</head>
+<body>
+  <div class="max-w-6xl mx-auto px-4">
+
+    <nav x-data="{ open: false }" class="flex items-center justify-between py-4">
+      <a href="professional_site.html" class="text-2xl font-bold">Steve Wang</a>
+      <button @click="open = !open" class="md:hidden border px-3 py-2 rounded">Menu</button>
+      <div :class="open ? 'block' : 'hidden'" class="md:flex md:space-x-6">
+        <a href="professional_site.html" class="block py-1">Home</a>
+        <a href="about.html" class="block py-1">About</a>
+        <a href="contact.html" class="block py-1">Contact</a>
+      </div>
+    </nav>
+
+    <section class="py-8">
+      <h1 class="text-3xl font-bold mb-4">Contact</h1>
+      <form class="max-w-md">
+        <input type="text" placeholder="Name" class="w-full border px-3 py-2 rounded mb-4">
+        <input type="email" placeholder="Email" class="w-full border px-3 py-2 rounded mb-4">
+        <textarea placeholder="Message" class="w-full border px-3 py-2 rounded mb-4"></textarea>
+        <button type="submit" class="border px-4 py-2 rounded">Send</button>
+      </form>
+    </section>
+
+    <footer class="py-8">&copy; 2026 Steve Wang</footer>
+
+  </div>
+</body>
+</html>

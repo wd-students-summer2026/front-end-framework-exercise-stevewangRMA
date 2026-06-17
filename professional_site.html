@@ -1,2 +1,56 @@
-<!-- insert your HTML code here -->
-<!-- don't forget to make two other HTML documents also -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Rivera</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs"></script>
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" media="only screen and (max-width: 480px)" href="css/mobile.css" />
+  <link rel="stylesheet" media="only screen and (min-width: 481px) and (max-width: 960px)" href="css/tablet.css" />
+  <link rel="stylesheet" media="only screen and (min-width: 961px)" href="css/desktop.css" />
+</head>
+<body>
+  <div class="max-w-6xl mx-auto px-4">
+
+    <nav x-data="{ open: false }" class="flex items-center justify-between py-4">
+      <a href="professional_site.html" class="text-2xl font-bold">Steve Wang</a>
+      <button @click="open = !open" class="md:hidden border px-3 py-2 rounded">Menu</button>
+      <div :class="open ? 'block' : 'hidden'" class="md:flex md:space-x-6">
+        <a href="professional_site.html" class="block py-1">Home</a>
+        <a href="about.html" class="block py-1">About</a>
+        <a href="contact.html" class="block py-1">Contact</a>
+      </div>
+    </nav>
+
+    <section class="flex flex-col lg:flex-row gap-6 py-8">
+      <div class="flex-1">
+        <h1 class="text-3xl sm:text-4xl font-bold">Investment Banking Analyst</h1>
+        <p class="mt-4 text-[18px]">I build pitch books.</p>
+      </div>
+      <div class="flex-1 bg-[#e2e8f0] p-6 rounded">
+        <p>Welcome to my portfolio.</p>
+      </div>
+    </section>
+
+    <section class="py-8" x-data="{ images: ['images/1.png', 'images/2.png', 'images/3.png'], current: 0 }">
+      <h2 class="text-2xl font-bold mb-4">Projects</h2>
+      <img :src="images[current]" alt="Project" class="w-full rounded">
+      <div class="mt-4 space-x-2">
+        <button @click="current = (current - 1 + images.length) % images.length" class="border px-4 py-2 rounded">Previous</button>
+        <button @click="current = (current + 1) % images.length" class="border px-4 py-2 rounded">Next</button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-8">
+        <div @click="current = 0" class="column1 border p-4 rounded cursor-pointer">IAG Pitch Competition</div>
+        <div @click="current = 1" class="column2 border p-4 rounded cursor-pointer">VC Competition</div>
+        <div @click="current = 2" class="column3 border p-4 rounded cursor-pointer">FSA Project</div>
+      </div>
+    </section>
+
+    <footer class="py-8 text-[14px]">&copy; 2026 Steve Wang</footer>
+
+  </div>
+</body>
+</html>
